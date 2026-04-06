@@ -845,6 +845,12 @@ class Observatory:
             #right: right boundary of the observation plot in angstroms
 
         
+        if self.source_spectrum is None:
+            raise ValueError(
+                "source_spectrum is not set. Call set_source() or "
+                "set_generic_source() before calling make_observation(). E.g. `ESC.set_generic_source(1e-8,0,plot=True)`"
+            )
+
         vega = SourceSpectrum.from_vega()  # For unit conversion
 
         #Source Observation
